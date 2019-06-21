@@ -33,6 +33,7 @@ static Scanner in;
 			int numInput;
 			try {
 				numInput = in.nextInt();
+                                //Dit zorgt ervoor dat je geen andere cijfers intypt dan 1-9
 				if (!(numInput > 0 && numInput <= 9)) {
 					System.out.println("Typ 0 tot en met 9; typ weer de nummer in:");
 					continue;
@@ -41,6 +42,7 @@ static Scanner in;
 				System.out.println("Typ 0 tot en met 9; typ weer de nummer in:");
 				continue;
 			}
+                        //dit zorgt wie er aan de beurt is
 			if (board[numInput-1].equals(String.valueOf(numInput))) {
 				board[numInput-1] = turn;
 				if (turn.equals("X")) {
@@ -58,9 +60,10 @@ static Scanner in;
 		if (winner.equalsIgnoreCase("draw")) {
 			System.out.println("Gelijkspel!");
 		} else {
-			System.out.println("Gefeliciteerd! " + winner + "'s heeft gewonnen!");
+			System.out.println("Gefeliciteerd! " + winner + " heeft gewonnen!");
 		}
 	}
+        //dit is de functie die de winnende combinatie checkt 
 	static String checkWinner() {
 		for (int a = 0; a < 8; a++) {
 			String line = null;
@@ -96,18 +99,18 @@ static Scanner in;
 				return "O";
 			}
 		}
-
+                //gelijkspel code
 		for (int a = 0; a < 9; a++) {
 			if (Arrays.asList(board).contains(String.valueOf(a+1))) {
 				break;
 			}
 			else if (a == 8) return "draw";
 		}
-
+                //Text voor wie er aan de beurt is
 		System.out.println(turn + " is nu, plaats " + turn + " in een vak:");
 		return null;
 	}
-
+        //Dit print het bord uit 
 	static void printBoard() {
 		System.out.println("/---|---|---\\");
 		System.out.println("| " + board[0] + " | " + board[1] + " | " + board[2] + " |");
@@ -117,7 +120,7 @@ static Scanner in;
 		System.out.println("| " + board[6] + " | " + board[7] + " | " + board[8] + " |");
 		System.out.println("/---|---|---\\");
 	}
-
+        
 	static void populateEmptyBoard() {
 		for (int a = 0; a < 9; a++) {
 			board[a] = String.valueOf(a+1);
