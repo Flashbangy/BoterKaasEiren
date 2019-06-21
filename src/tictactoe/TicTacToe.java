@@ -99,7 +99,7 @@ static Scanner in;
 				return "O";
 			}
 		}
-                //gelijkspel code
+                //gelijkspel code als het niet case 1 tot en met 7 is
 		for (int a = 0; a < 9; a++) {
 			if (Arrays.asList(board).contains(String.valueOf(a+1))) {
 				break;
@@ -120,7 +120,7 @@ static Scanner in;
 		System.out.println("| " + board[6] + " | " + board[7] + " | " + board[8] + " |");
 		System.out.println("/---|---|---\\");
 	}
-        
+        //populateEmptyBoard 
 	static void populateEmptyBoard() {
 		for (int a = 0; a < 9; a++) {
 			board[a] = String.valueOf(a+1);
